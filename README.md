@@ -1,6 +1,6 @@
 # 📍 Contact Manager REST-ful API
 
-## ⭐ Methods
+## ⭐ METHODS
 
 ### 🌐 `GET`
 
