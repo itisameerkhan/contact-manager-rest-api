@@ -3,7 +3,7 @@
  * @route GET /api/contacts
  * @access PUBLIC
  */
-export const getContact = (req, res) => {
+export const getContacts = (req, res) => {
   res.status(200).json({ sucess: true, message: "GET method" });
 };
 
@@ -24,6 +24,13 @@ export const getContactWithId = (req, res) => {
  * @access PUBLIC
  */
 export const createContact = (req, res) => {
+  console.log(req.body);
+  const { name, email, phone } = req.body;
+
+  if(!name || !email || !phone) {
+    res.status(400);
+    throw new Error("missing field")
+  }
   res.status(201).json({ sucess: true, message: "POST method" });
 };
 

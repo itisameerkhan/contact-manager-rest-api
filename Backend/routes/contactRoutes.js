@@ -1,6 +1,6 @@
 import express from "express";
 import {
-  getContact,
+  getContacts,
   getContactWithId,
   createContact,
   updateContact,
@@ -9,14 +9,12 @@ import {
 
 const router = express.Router();
 
-router.get("/", getContact);
+router.route("/").get(getContacts).post(createContact);
 
-router.get("/:id", getContactWithId);
-
-router.post("/", createContact);
-
-router.put("/:id", updateContact);
-
-router.delete("/:id", deleteContact);
+router
+  .route("/:id")
+  .get(getContactWithId)
+  .put(updateContact)
+  .delete(deleteContact);
 
 export default router;
