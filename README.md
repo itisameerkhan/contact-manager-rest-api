@@ -4,7 +4,7 @@
 
 ### 🌐 `GET`
 
-#### GET all the list of datas from the database
+#### GET all the list of datas from the database.
 
 ```http
 /api/contacts
