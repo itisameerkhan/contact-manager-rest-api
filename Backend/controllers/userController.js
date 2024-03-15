@@ -9,15 +9,19 @@ import bcrypt from "bcryptjs";
  */
 export const registerUser = asyncHandler(async (req, res) => {
   const { username, email, password } = req.body;
+
   if (!username || !email || !password) {
     res.status(400);
     throw new Error("All fields are madentory");
   }
+
   const userAvailable = await User.findOne({ email: email });
+
   if (userAvailable) {
     res.status(400);
     throw new Error("User already exists with same email address");
   }
+  
   const hashedPassword = await bcrypt.hash(password, 10);
   const user = await User.create({
     username,
